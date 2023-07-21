@@ -6,7 +6,8 @@ import {
   Link,
   VStack,
   Code,
-  Grid,
+  Grid, GridItem,
+  Button, ButtonGroup,
   theme,
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
@@ -15,26 +16,17 @@ import { Logo } from './Logo';
 function App() {
   return (
     <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh" p={3}>
-          <ColorModeSwitcher justifySelf="flex-end" />
-          <VStack spacing={8}>
-            <Logo h="40vmin" pointerEvents="none" />
-            <Text>
-              Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
-            </Text>
-            <Link
-              color="teal.500"
-              href="https://chakra-ui.com"
-              fontSize="2xl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn Chakra
-            </Link>
-          </VStack>
-        </Grid>
-      </Box>
+    <Box textAlign="center" fontSize="xl" m={5}>
+      <Text fontSize='4xl'>Serverless Image Processor</Text>
+      <Grid templateColumns='repeat(2, 1fr)' gap={6}>
+        <GridItem  w='100%' h='10' >
+          <Button borderRadius='md' border='1px' border-color='black.200' bg='gray.200' size='md' w='100%'>
+            <Text fontSize='2xl'>Select a photo</Text>
+          </Button>
+        </GridItem>
+        <GridItem w='100%' h='10' bg='black' />
+      </Grid>
+    </Box>
     </ChakraProvider>
   );
 }
