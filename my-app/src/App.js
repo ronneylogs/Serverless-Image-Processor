@@ -12,6 +12,7 @@ import {
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { Logo } from './Logo';
+import ImageUpload from './ImageUpload';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <GridItem w='100%' h='10' bg='black' />
       </Grid>
     </Box>
+     <ImageUpload></ImageUpload>
     </ChakraProvider>
   );
 }
