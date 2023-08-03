@@ -50,7 +50,7 @@ function App() {
               border-color='black.200' 
               type='file'
               name='file' 
-              ref={inputRef} 
+              // ref={inputRef} 
               onChange={handleImage}></Input>
           </GridItem>
           <GridItem w='100%' h='10' bg='blue.400' borderRadius='md' border='1px' >
@@ -61,7 +61,10 @@ function App() {
                     <Link w='100%' href={URL.createObjectURL(image)} download>Click to download</Link>
                       
 
-                  ): <Link >No Image</Link>
+                  ): <Link>
+                  No Image
+                  
+                  </Link>
               }
               {/* <a href={URL.createObjectURL(image)} download>Click to download</a> */}
             </Button>
@@ -69,17 +72,34 @@ function App() {
         </Grid>
       </Box>
        <Center m={5} alignItems='center' >
-            <Box w='50%'>
+            <Box w='100%'>
               {
                   image?(
-                      <AspectRatio ratio={9/6}>
+                      <AspectRatio maxW='600px' ratio={6/4}>
                           <Image src={URL.createObjectURL(image)}></Image>
                       </AspectRatio>
 
                   ): <img src='./logo.svg'></img>
               }
             </Box>
+                    <Box>
+          <Button m={5} bg='orange'>Invert</Button>
+          <Button m={5} bg='orange'>Flip Horizontal</Button>
+          <Button m={5} bg='orange'>Flip Vertical</Button>
+      
+
+
+          <Button m={5} bg='orange'>Decrase Brightness</Button>
+          <Button m={5} bg='orange'>Increase Brightness</Button>
+          <Button m={5} bg='orange'>Sepia Filter</Button>
+
+
+          <Button m={5} bg='orange'>Pixelate</Button>
+          <Button m={5} bg='orange'>Binarize</Button>
+        </Box>
+            
         </Center>
+
      
     </ChakraProvider>
   );
