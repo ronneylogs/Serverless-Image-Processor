@@ -19,7 +19,6 @@ import {
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { Logo } from './Logo';
-// import ImageUpload from './ImageUpload';
 
 
 function App() {
@@ -32,6 +31,7 @@ function App() {
         setImage(e.target.files[0]);
   }
 
+  // Functions to connect to aws
   function invertApi(){
     const formData = new FormData();
     formData.append("img", image);
@@ -111,6 +111,8 @@ function App() {
         <Box bg='whiteAlpha.400' boxShadow='md' mb={7} py={10} >
           <Text fontSize='4xl'>Serverless Image Processor</Text>
         </Box>
+
+        {/* Choose file */}
         <Grid templateColumns='repeat(2, 1fr)' gap={6}>
           <GridItem  w='100%' h='10' >
                             <Input 
@@ -126,9 +128,10 @@ function App() {
               onChange={handleImage}></Input>
 
           </GridItem>
+          {/* Download button */}
           <GridItem w='100%' h='10' bg='blue.400' borderRadius='md' border='1px' >
             <Button w='100%' h='10' bg='blue.400' borderRadius='md' border='1px' >
-              {/* <Text>Download</Text> */}
+         
                {
                   image?(
                     <Link w='100%' href={URL.createObjectURL(image)} download>Click to download</Link>
@@ -136,14 +139,13 @@ function App() {
 
                   ): <Link>
                   No Image
-                  
                   </Link>
               }
-              {/* <a href={URL.createObjectURL(image)} download>Click to download</a> */}
             </Button>
           </GridItem>
         </Grid>
       </Box>
+      {/* Image */}
        <Center m={5} alignItems='center' >
             <Box w='100%'>
               {
@@ -156,6 +158,8 @@ function App() {
               }
             </Box>
                     <Box>
+
+          {/* Transformation buttons */}
           <Button onClick={invertApi} m={5} bg='orange'>Invert</Button>
           <Button onClick={flipHorizontalApi} m={5} bg='orange'>Flip Horizontal</Button>
           <Button onClick={flipVerticalApi} m={5} bg='orange'>Flip Vertical</Button>
