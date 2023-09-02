@@ -23,6 +23,8 @@ import { Logo } from './Logo';
 
 function App() {
 
+  // imgSRC = "URL.createObjectURL("+image+")";
+
   const inputRef = useRef(null);
     const [image, setImage] = useState('');
 
@@ -34,81 +36,129 @@ function App() {
   // Functions to connect to aws
   function invertApi(){
     const formData = new FormData();
-    formData.append("img", image);
+    let image64 = blobToBase64(image);
+    formData.append("img", image64);
     axios.get('invertUrl',formData).then((res) => {
       console.log(res);
-      setImage(res);
+      let blob = b64toBlob(res);
+      setImage(blob);
     });
   }
 
   function flipHorizontalApi(){
     const formData = new FormData();
-    formData.append("img", image);
+    let image64 = blobToBase64(image);
+    formData.append("img", image64);
     axios.get('flipHorizontalUrl',formData).then((res) => {
       console.log(res);
-      setImage(res);
+      let blob = b64toBlob(res);
+      setImage(blob);
     });
   }
 
   function flipVerticalApi(){
     const formData = new FormData();
-    formData.append("img", image);
+    let image64 = blobToBase64(image);
+    formData.append("img", image64);
     axios.get('flipVerticalUrl',formData).then((res) => {
       console.log(res);
-      setImage(res);
+      let blob = b64toBlob(res);
+      setImage(blob);
     });
   }
 
    function increaseBApi(){
     const formData = new FormData();
-    formData.append("img", image);
+    let image64 = blobToBase64(image);
+    formData.append("img", image64);
     axios.get('increaseBUrl',formData).then((res) => {
       console.log(res);
-      setImage(res);
+      let blob = b64toBlob(res);
+      setImage(blob);
     });
   }
 
   function decreaseBApi(){
     const formData = new FormData();
-    formData.append("img", image);
+    let image64 = blobToBase64(image);
+    formData.append("img", image64);
     axios.get('decreaseBUrl',formData).then((res) => {
       console.log(res);
-      setImage(res);
+      let blob = b64toBlob(res);
+      setImage(blob);
     });
   }
 
    function sepiaApi(){
     const formData = new FormData();
-    formData.append("img", image);
+    let image64 = blobToBase64(image);
+    formData.append("img", image64);
     axios.get('sepiaUrl',formData).then((res) => {
       console.log(res);
-      setImage(res);
+      let blob = b64toBlob(res);
+      setImage(blob);
     });
   }
 
   function pixelateApi(){
     const formData = new FormData();
-    formData.append("img", image);
+    let image64 = blobToBase64(image);
+    formData.append("img", image64);
     axios.get('pixelateUrl',formData).then((res) => {
       console.log(res);
-      setImage(res);
+      let blob = b64toBlob(res);
+      setImage(blob);
     });
   }
 
   function binarizeApi(){
     const formData = new FormData();
-    formData.append("img", image);
+    let image64 = blobToBase64(image);
+    formData.append("img", image64);
     axios.get('binarizeUrl',formData).then((res) => {
       console.log(res);
-      setImage(res);
+      let blob = b64toBlob(res);
+      setImage(blob);
     });
+  }
+
+  // Converts image blob to base64
+  const blobToBase64 = blob => {
+    const reader = new FileReader();
+    reader.readAsDataURL(blob);
+    return new Promise(resolve => {
+      reader.onloadend = () => {
+        resolve(reader.result);
+      };
+    });
+  };
+
+  // Converts base64 to imag blob
+  const b64toBlob = (b64Data, contentType='', sliceSize=512) => {
+    const byteCharacters = atob(b64Data);
+    const byteArrays = [];
+
+    for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+      const slice = byteCharacters.slice(offset, offset + sliceSize);
+
+      const byteNumbers = new Array(slice.length);
+      for (let i = 0; i < slice.length; i++) {
+        byteNumbers[i] = slice.charCodeAt(i);
+      }
+
+      const byteArray = new Uint8Array(byteNumbers);
+      byteArrays.push(byteArray);
+    }
+
+    const blob = new Blob(byteArrays, {type: contentType});
+    return blob;
   }
 
 
   return (
     <ChakraProvider theme={theme}>
       <Box as='b' textAlign="center" fontSize="xl" >
-        <Box bg='whiteAlpha.400' boxShadow='md' mb={7} py={10} >
+        <Box bg='whiteAlpha.400' boxShadow='md' mb={7} py={5} >
           <Text fontSize='4xl'>Serverless Image Processor</Text>
         </Box>
 
