@@ -14,26 +14,26 @@ each individual pixel with Numpy. The web app is hosted on S3 and requests are h
 - Numpy
 
 
+
 ## Examples
 
-<img width="700" alt="Screenshot 2023-09-14 at 11 53 20 PM" src="https://github.com/ronneylogs/Serverless-Image-Processor/assets/104666332/9973964d-cb9c-4aca-b011-2731c74dd6bf">
+<img width="1512" alt="react" src="https://github.com/ronneylogs/Serverless-Image-Processor/assets/104666332/df6d3170-2cf2-4a0a-a6e1-e8f7d559aea8">
+
+### Original
+
+![project-photo](https://github.com/ronneylogs/Serverless-Image-Processor/assets/104666332/92ad67de-106e-451b-a368-c882bf23e53c)
+
 
 ### Invert
-<p float="left">
-<img width="400" src="https://github.com/ronneylogs/Serverless-Image-Processor/assets/104666332/49bf1a3a-5efe-47a0-bd8d-e81abc4a0ca8" >
-<img width="400" alt="Screenshot 2023-09-14 at 11 46 33 PM" src="https://github.com/ronneylogs/Serverless-Image-Processor/assets/104666332/2549dc6f-3367-440a-83c9-2d3331336d3d">
-</p>
+<img width="600" alt="invert" src="https://github.com/ronneylogs/Serverless-Image-Processor/assets/104666332/d790a15b-bf6a-44ea-8812-886396fb11c8">
+
 
 
 ### Sepia Filter
-<p float="left">
-<img width="400" src="https://github.com/ronneylogs/Serverless-Image-Processor/assets/104666332/49bf1a3a-5efe-47a0-bd8d-e81abc4a0ca8" >
-<img width="400" alt="Screenshot 2023-09-14 at 11 46 59 PM" src="https://github.com/ronneylogs/Serverless-Image-Processor/assets/104666332/0682d424-3edb-4f0d-9f9c-dede3113370c">
-</p>
+<img width="599" alt="sepia" src="https://github.com/ronneylogs/Serverless-Image-Processor/assets/104666332/2238d7de-e66b-4b17-8490-921cebe51932">
+
 
 ### Binarize
-<p float="left">
-<img width="400" src="https://github.com/ronneylogs/Serverless-Image-Processor/assets/104666332/49bf1a3a-5efe-47a0-bd8d-e81abc4a0ca8" >
-<img width="400" alt="Screenshot 2023-09-14 at 11 47 45 PM" src="https://github.com/ronneylogs/Serverless-Image-Processor/assets/104666332/02853a08-7ca0-44ad-8737-e97abe5f6873">
-</p>
+<img width="597" alt="binarize" src="https://github.com/ronneylogs/Serverless-Image-Processor/assets/104666332/a88bed73-57a4-44e0-b2c7-8ccb417cd85f">
+
 
